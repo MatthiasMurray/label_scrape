@@ -25,6 +25,52 @@ from selenium import webdriver
 ##END DEPENDENCIES
 
 
+##FAST VERSION
+def fastquote(tick,start='2015-01-01',end='2020-06-02'):
+  drivepath = '/usr/local/bin/chromedriver 4'
+  driver = webdriver.Chrome(drivepath)
+
+  driver.get('https://finance.yahoo.com/')
+  time.sleep(5)
+
+  company_search_box = driver.find_element_by_id('yfin-usr-qry')
+  company_search_box.send_keys(tick.upper())
+  time.sleep(2)
+
+  search_but = driver.find_element_by_id('header-desktop-search-button')
+  search_but.click()
+  time.sleep(2)
+
+##all in one approach
+##def fastfinish(dr,start='2015-01-01',end='2020-06-02'):
+
+  #go to historicals
+  historicals = driver.find_element_by_css_selector('[data-test="HISTORICAL_DATA"]')
+  historicals.click()
+  time.sleep(3)
+ 
+  open_dates = driver.find_element_by_css_selector('[data-icon="CoreArrowDown"]')
+  open_dates.click()
+  time.sleep(3)
+ 
+  startdatebox = driver.find_element_by_name('startDate')
+  time.sleep(1)
+  startdatebox.send_keys(start)
+  time.sleep(2)
+
+  enddatebox = driver.find_element_by_name('endDate')
+  time.sleep(1)
+  enddatebox.send_keys(end)
+  time.sleep(2)
+
+  apply_but = driver.find_elements_by_tag_name('button')[5]
+  apply_but.click()
+
+  time.sleep(2)
+
+  downl_but = driver.find_elements_by_tag_name('svg')
+  downl_but.click()
+
 ##PARTS 1-3
 def quotepage(tick):
   drivepath = '/usr/local/bin/chromedriver'

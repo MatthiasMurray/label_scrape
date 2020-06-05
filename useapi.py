@@ -14,8 +14,10 @@ def qtrlabels(tick):
   def asmonth(x):
     return pd.to_datetime(x).month
   
+  
+  
   stock = yf.Ticker(tick.upper())
-  hist = stock.history(interval="1d",start="2015-01-01",end="2020-06-02")
+  hist = stock.history(interval="1d",start="2015-01-01",end=str(pd.datetime.now())[:10])
   hist['Date'] = hist.index
   hist['month'] = [asmonth(hist.iloc[i].Date) for i in range(len(hist.Date))]
 

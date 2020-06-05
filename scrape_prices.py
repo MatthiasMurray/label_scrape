@@ -1,3 +1,11 @@
+##THIS SCRIPT IS DEPCRATED/SLATED FOR REMOVAL.
+##THE SCRAPING APPROACH IS NOT WORKING YET SO
+##IT WILL ONLY BE CONTINUED IF THE YFINANCE
+##APPROACH IS DETERMINED TO BE UNUSABLE
+##COMMERCIALLY OR ANOTHER APPROACH ALTOGETHER
+##IS REQUIRED.
+
+
 ##this script contains a module that obtains price information for preprocessing in sentiment labeling
 
 ##Yahoo outlines historical price access steps:
